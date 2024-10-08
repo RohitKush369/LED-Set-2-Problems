@@ -1,0 +1,17 @@
+//Glow LED's one by one do not off the LED
+void setup() {
+  volatile char *dir;
+  dir = 0x30;
+  *dir = 0xFF;
+}
+void loop() {
+  volatile char *out;
+  volatile long i;
+  out = 0x31;
+  for (char led = 0x01; led <= 0x80; led <<= 1) {
+    *out |= led; //OR assignment is used  to keep previous LEDs on
+    for (i = 0; i < 200000; i++);
+  }
+}
+
+
