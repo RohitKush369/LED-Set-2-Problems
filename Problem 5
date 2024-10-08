@@ -1,0 +1,15 @@
+//Glow even  LED's one by one without turn off the LED's
+void setup() {
+volatile char *dir;
+dir=0x30;
+*dir=0xff;
+}
+void loop() {
+  volatile char *out;
+  volatile long i;
+  out=0x31;
+for(char led=0x02;led<=0x80;led<<=2){
+  *out|=led;
+  for(i=0;i<200000;i++);
+}
+}
