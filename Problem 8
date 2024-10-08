@@ -1,0 +1,17 @@
+//Glow LED 4 to 7 one by one
+void setup()
+{
+  volatile char *dir;
+  dir=0x30;
+  *dir=0xF0;
+}
+void loop()
+{
+  volatile char *out;
+  volatile long i;
+  out=0x31;
+  for(char led=0x10;led<=0x80;led<<=1){
+    *out|=led;
+    for(i=0;i<200000;i++);
+  }
+}
