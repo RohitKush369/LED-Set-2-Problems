@@ -1,0 +1,16 @@
+//Blink LED first with delay
+void setup(){
+  volatile *dir;
+  dir=0x30;
+  *dir=0x01;
+}
+void loop(){
+  volatile char *out;
+  volatile long i;
+  out=0x31;
+  *out=0x01;
+  for(i=0;i<200000;i++);
+  out=0x31;
+  *out=0x00;
+  for(i=0;i<200000;i++);
+}
