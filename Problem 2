@@ -1,0 +1,18 @@
+//Blink all 8 LED's with delay
+void setup(){
+  volatile char *dir;
+  dir=0x30;
+  *dir=0xFF;
+}
+void loop()
+{
+  volatile char *out;
+  volatile long i;
+  out=0x31;
+  *out=0xFF;
+  for(i=0;i<200000;i++);
+  out=0x31;
+  *out=0x00;
+  for(i=0;i<200000;i++);
+
+}
